@@ -32,4 +32,96 @@ canvas {
     width: 100%;
     height: 100%;
     z-index: 0;
+} 
+/* ------------------------- */
+/* 1. Container Animation */
+/* ------------------------- */
+.container {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  animation: zoomFadeIn 1.5s ease-out forwards;
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+/* ------------------------- */
+/* 2. Typing Text Effect */
+/* ------------------------- */
+.typing {
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* ------------------------- */
+/* 3. Slide-Up for Paragraph */
+/* ------------------------- */
+.slide-up {
+  font-size: 1.5em;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 2s ease-out forwards 2s;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------- */
+/* 4. Zoom Fade Animation for Container */
+/* ------------------------- */
+@keyframes zoomFadeIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ------------------------- */
+/* 5. Background Glow Effect */
+/* ------------------------- */
+.glow-bg {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: floatGlow 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-45%, -55%) scale(1.2);
+  }
 }
